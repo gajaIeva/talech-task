@@ -1,0 +1,8 @@
+{
+  "name": "talech-task",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/gajaIeva/talech-task.git",
+  "author": "gajaIeva <gaja.ieva@gmail.com>",
+  "license": "MIT"
+}
