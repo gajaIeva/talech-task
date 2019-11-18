@@ -1850,7 +1850,7 @@ babel-code-frame@^6.22.0:
     esutils "^2.0.2"
     js-tokens "^3.0.2"
 
-babel-eslint@10.0.3:
+babel-eslint@10.0.3, babel-eslint@^10.0.3:
   version "10.0.3"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.0.3.tgz#81a2c669be0f205e19462fed2482d33e4687a88a"
   integrity sha512-z3U7eMY6r/3f3/JB9mTsLjyxrv0Yb1zb8PCWCLpguxfCzBIZUwy23R1t/XKewP+8mEN2Ck8Dtr4q20z6ce6SoA==
@@ -2078,6 +2078,11 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
+
+bootstrap@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.3.1.tgz#280ca8f610504d99d7b6b4bfc4b68cec601704ac"
+  integrity sha512-rXqOmH1VilAt2DyPzluTi2blhk17bO7ef+zLLPlWvG494pDxcM234pJ8wTc/6R40UWizAIIMgxjvxZg5kmsbag==
 
 brace-expansion@^1.1.7:
   version "1.1.11"

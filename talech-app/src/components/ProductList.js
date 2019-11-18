@@ -1,21 +1,30 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import ProductItem from './ProductItem';
 
 class ProductList extends Component {
     render() {
         return (
             <div className='mainProductList'>
+                <h2 className="m-2">Products</h2>
                 <table>
-                    <caption>The List of Products</caption>
-                        <tr>
+                    <thead>
+                       <tr>
+                           <th>#</th>
                             <th>Name</th>
                             <th>EAN</th>
                             <th>Type</th>
                             <th>Weight</th>
                             <th>Color</th>
                             <th>Active</th>
-                        </tr>
+                            <th></th>
+                            <th></th>
+                            
+                        </tr> 
+                    </thead>
+                    <tbody>
                         <ProductItem/> 
+                    </tbody>
                 </table>
             </div>
         );
