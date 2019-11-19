@@ -16,7 +16,7 @@ class Nav extends Component {
                             <Link to="/products" className="nav-link">Products</Link>
                         </li>
                         <li className="navbar-item">
-                            <Link to="/products/create" className="nav-link">Create Product</Link>
+                            <Link to="/products/create" className="nav-link">Create product</Link>
                         </li>
                     </ul>
                 </div>

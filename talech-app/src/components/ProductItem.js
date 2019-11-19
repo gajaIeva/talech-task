@@ -2,10 +2,24 @@ import React, {Component} from 'react';
 //import {Link} from 'react-router-dom';
 
 class ProductItem extends Component {
+
+    constructor (props) {
+        super(props);
+        
+    }
+
     render () {
+        
+        let products = JSON.parse(localStorage.getItem('products'));
+
+        let sleepyCats = ['mou', 'zzz', 'snort'];
+        let sleepyCatElements = sleepyCats.map((sleepyCat) => <div>{sleepyCat}</div>);
+        console.log(sleepyCatElements);
+
         return (
             <tr>
-                <th>1</th>
+                {sleepyCatElements}
+                {/* <th>{this.products.products[i]}</th> */}
                 <td>Lempa</td>
                 <td>22222</td>
                 <td>Big</td>

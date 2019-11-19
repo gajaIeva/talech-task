@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 
 class NewProduct extends Component {
-    
-    productData;
 
+    //productData = (typeof localStorage["products"] != "undefined") ? JSON.parse(localStorage["products"]) : [];
+
+    // productData = [];
+    
     constructor(props) {
         super(props);
 
@@ -14,6 +16,8 @@ class NewProduct extends Component {
         this.onChangeProductColor = this.onChangeProductColor.bind(this);
         this.onChangeProductIsActive = this.onChangeProductIsActive.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+
+        localStorage.setItem('products', '[]');
 
         this.state = {
             product_name: '',
@@ -67,13 +71,11 @@ class NewProduct extends Component {
         //submit logic
 
         console.log(`Form submitted:`);
-        console.log(`name: ${this.state.product_name}`);
-        console.log(`ean: ${this.state.product_EAN}`);
-        console.log(`type: ${this.state.product_type}`);
-        console.log(`weight: ${this.state.product_weight}`);
-        console.log(`color: ${this.state.product_color}`);
-        console.log(`active: ${this.state.product_isActive}`);
+        console.log(this.state);
         
+        let productsArray = JSON.parse(localStorage.getItem('products'));
+        productsArray.push(this.state);
+        localStorage.setItem('products', JSON.stringify(productsArray));
 
         this.setState({
             product_name: '',
@@ -87,9 +89,9 @@ class NewProduct extends Component {
 
     //react life cycle
     componentDidMount() {
-        this.productData = JSON.parse(localStorage.getItem('product'));
+        this.productData = JSON.parse(localStorage.getItem('products'));
 
-        if (localStorage.getItem('product')) {
+        if (localStorage.getItem('products')) {
             this.setState({
                 product_name: this.productData.product_name,
                 product_EAN: this.productData.product_EAN,
@@ -111,9 +113,6 @@ class NewProduct extends Component {
         }
     }
 
-    componentDidUpdate(nextProps, nextState){
-        localStorage.setItem('product', JSON.stringify(nextState));
-    }
 
 
     render() {
