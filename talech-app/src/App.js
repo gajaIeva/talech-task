@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Nav from './components/Nav.js';
 import ProductList from './components/ProductList';
 import NewProduct from './components/CreateProductItem';
@@ -19,9 +19,9 @@ class App extends React.Component {
       <main className="App-main">
         <Switch>
           <Route path="/products" exact component={ProductList} />
-          <Route path="/products/:id" component={PreviewProduct}/>
+          <Route path="/product/:id" component={PreviewProduct}/>
           <Route path="/products/create" component={NewProduct}/>
-          <Route path="/products/:id/edit" component={EditProduct}/>
+          <Route path="/product/:id/edit" component={EditProduct}/>
         </Switch>
       </main>
     </div>

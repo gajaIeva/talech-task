@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import logo from './../logo.png';
 
 class Nav extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#">
+                <a className="navbar-brand" href="/">
                     <img src={logo} width="30" height="30" alt="CactusLogo"/>
                 </a>
                 <Link to="/products" className="navbar-brand">Cactus Shop</Link>
