@@ -18,7 +18,7 @@ class ProductList extends Component {
                             <th>Active</th>
                             <th></th>
                             <th></th>
-                            
+                            <th></th>
                         </tr> 
                     </thead>
                     <tbody>

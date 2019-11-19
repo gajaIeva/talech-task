@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 class NewProduct extends Component {
     
+    productData;
+
     constructor(props) {
         super(props);
 
@@ -15,9 +17,9 @@ class NewProduct extends Component {
 
         this.state = {
             product_name: '',
-            product_EAN: 0,
+            product_EAN: '',
             product_type: '',
-            product_weight: 0,
+            product_weight: '',
             product_color: '',
             product_isActive: false
         };
@@ -53,7 +55,7 @@ class NewProduct extends Component {
         });
     }
 
-    onChangeProductIsActive(e) {
+    onChangeProductIsActive() {
         this.setState ({
             product_isActive: !this.state.product_isActive
         });
@@ -72,7 +74,6 @@ class NewProduct extends Component {
         console.log(`color: ${this.state.product_color}`);
         console.log(`active: ${this.state.product_isActive}`);
         
-        
 
         this.setState({
             product_name: '',
@@ -84,9 +85,40 @@ class NewProduct extends Component {
         });
     }
 
+    //react life cycle
+    componentDidMount() {
+        this.productData = JSON.parse(localStorage.getItem('product'));
+
+        if (localStorage.getItem('product')) {
+            this.setState({
+                product_name: this.productData.product_name,
+                product_EAN: this.productData.product_EAN,
+                product_type: this.productData.product_type,
+                product_weight: this.productData.product_weight,
+                product_color: this.productData.product_color,
+                product_isActive: this.productData.product_isActive,
+
+            })
+        } else {
+            this.setState({
+                product_name: '',
+                product_EAN: '',
+                product_type: '',
+                product_weight: '',
+                product_color: '',
+                product_isActive: false
+            });
+        }
+    }
+
+    componentDidUpdate(nextProps, nextState){
+        localStorage.setItem('product', JSON.stringify(nextState));
+    }
+
+
     render() {
         return (
-            <div className="m-5">
+            <div className="m-1">
                 <h3> Create New Product</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
@@ -143,6 +175,7 @@ class NewProduct extends Component {
                         <input type="submit" value="Create" className="btn btn-outline-success"/>
                     </div>
                 </form>
+
             </div>
         );
     }
