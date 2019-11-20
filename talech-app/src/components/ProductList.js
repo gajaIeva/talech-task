@@ -22,9 +22,10 @@ class ProductList extends Component {
                         </tr> 
                     </thead>
                     <tbody>
-                        <ProductItem/> 
+                        <ProductItem/>  
                     </tbody>
                 </table>
+              
             </div>
         );
     }

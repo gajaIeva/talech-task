@@ -3,8 +3,6 @@ import React, {Component} from 'react';
 class NewProduct extends Component {
 
     //productData = (typeof localStorage["products"] != "undefined") ? JSON.parse(localStorage["products"]) : [];
-
-    // productData = [];
     
     constructor(props) {
         super(props);
@@ -17,7 +15,7 @@ class NewProduct extends Component {
         this.onChangeProductIsActive = this.onChangeProductIsActive.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-        localStorage.setItem('products', '[]');
+        //localStorage.setItem('products', '[]');
 
         this.state = {
             product_name: '',
@@ -69,9 +67,6 @@ class NewProduct extends Component {
         e.preventDefault();
 
         //submit logic
-
-        console.log(`Form submitted:`);
-        console.log(this.state);
         
         let productsArray = JSON.parse(localStorage.getItem('products'));
         productsArray.push(this.state);
@@ -87,7 +82,7 @@ class NewProduct extends Component {
         });
     }
 
-    //react life cycle
+    //react life cycle - ar tikrai reikia sios dalies?
     componentDidMount() {
         this.productData = JSON.parse(localStorage.getItem('products'));
 
