@@ -113,60 +113,73 @@ class NewProduct extends Component {
     render() {
         return (
             <div className="m-1">
-                <h3> Create New Product</h3>
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label> Name:</label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.product_name}
-                                onChange={this.onChangeProductName}
-                                />
+                <h3 className="m-2"> Create New Product</h3>
+                <form className='m-3' onSubmit={this.onSubmit} >
+                    <div className="form-group row">
+                        <label className="col-sm-3 col-form-label"> Name:</label>
+                        <div className='col-sm'>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.product_name}
+                                    onChange={this.onChangeProductName}
+                                    />
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label> EAN:</label>
-                        <input  type="text"
+                    <div className="form-group row">
+                        <label className="col-sm-3 col-form-label"> EAN:</label>
+                        <div className='col-sm'>
+                            <input  type="text"
                                 className="form-control"
                                 value={this.state.product_EAN}
                                 onChange={this.onChangeProductEAN}
                                 />
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label> Type:</label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.product_type}
-                                onChange={this.onChangeProductType}
-                                />
-                    </div>
-                    <div className="form-group">
-                        <label> Weight:</label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.product_weight}
-                                onChange={this.onChangeProductWeight}
-                                />
-                    </div>
-                    <div className="form-group">
-                        <label> Color:</label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.product_color}
-                                onChange={this.onChangeProductColor}
-                                />
-                    </div>
-                    <div className="form-group">
-                        <div className="form-check form-check-inline">
-                            <label> Active:</label>
-                            <input  className="form-check-input ml-5"
-                                    type="checkbox"
-                                    checked={this.state.product_isActive}
-                                    onChange={this.onChangeProductIsActive}
+                    <div className="form-group row">
+                        <label className="col-sm-3 col-form-label"> Type:</label>
+                        <div className='col-sm'>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.product_type}
+                                    onChange={this.onChangeProductType}
                                     />
                         </div>
                     </div>
+                    <div className="form-group row">
+                        <label className="col-sm-3 col-form-label"> Weight:</label>
+                        <div className='col-sm'>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.product_weight}
+                                    onChange={this.onChangeProductWeight}
+                                    />
+                        </div>
+                    </div>
+                    <div className="form-group row">
+                        <label className="col-sm-3 col-form-label"> Color:</label>
+                        <div className='col-sm'>
+                            <input  type="text"
+                                    className="form-control"
+                                    value={this.state.product_color}
+                                    onChange={this.onChangeProductColor}
+                                    />
+                        </div>
+                    </div>
+                    <div className="form-group row">
+                        <label className="col-sm-2 form-check-label">Active: </label>
+                        <div className="col-sm">
+                            <div className="form-check">
+                                <input  className="form-control "
+                                        type="checkbox"
+                                        checked={this.state.product_isActive}
+                                        onChange={this.onChangeProductIsActive}
+                                        />
+                                </div>
+                            </div>
+                        </div>
+                    
                     <div className="form-group">
-                        <input type="submit" value="Create" className="btn btn-outline-success"/>
+                        <input type="submit" value="Create" className="btn btn-outline-success w-100"/>
                     </div>
                 </form>
 

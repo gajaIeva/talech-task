@@ -18,10 +18,11 @@ class App extends React.Component {
       </header>
       <main className="App-main">
         <Switch>
-          <Route path="/products" exact component={ProductList} />
-          <Route path="/product/:id" component={PreviewProduct}/>
           <Route path="/products/create" component={NewProduct}/>
-          <Route path="/product/:id/edit" component={EditProduct}/>
+          <Route path="/products/:id/edit" component={EditProduct}/>
+          <Route path="/products/:id" exact component={PreviewProduct}/>
+          <Route path="/products" exact component={ProductList} />
+
         </Switch>
       </main>
     </div>

@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class ProductItem extends Component {
 
@@ -7,8 +7,6 @@ class ProductItem extends Component {
     render () {
         
         let products = JSON.parse(localStorage.getItem('products'));
-
-        console.log(products);
         
         let productListElements = products.map((product, index) => 
         <Fragment>
@@ -23,7 +21,7 @@ class ProductItem extends Component {
                            checked={product.product_isActive}
                            //onChange={this.onChangeProductIsActive}
                            /></td>
-                <td><button className="btn btn-outline-info">View</button></td>
+                <td><Link to={`/products/${index}`}><button className="btn btn-outline-info">View</button></Link></td>
                 <td><button className="btn btn-outline-warning">Edit</button></td>
                 <td><button className="btn btn-outline-danger">Delete</button></td>
           </tr>
