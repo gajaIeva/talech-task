@@ -8,13 +8,7 @@ class ProductItem extends Component {
 
         this.onDelete = this.onDelete.bind(this);
 
-        this.state = {
-            
-        }
-
     }
-    
-
     
     onDelete(e) {
       
@@ -29,7 +23,6 @@ class ProductItem extends Component {
         window.location.reload();
 
     }
-     
 
     render () {
         
@@ -49,7 +42,7 @@ class ProductItem extends Component {
                            //onChange={this.onChangeProductIsActive}
                            /></td>
                 <td><Link to={`/products/${index}`}><button className="btn btn-outline-info">View</button></Link></td>
-                <td><button className="btn btn-outline-warning">Edit</button></td>
+                <td><Link to={`/products/${index}/edit`}><button className="btn btn-outline-warning">Edit</button></Link></td>
                 <td><button className="btn btn-outline-danger"  onClick={this.onDelete} value={index}>Delete</button></td>
           </tr>
         </Fragment>
