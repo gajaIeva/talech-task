@@ -2,7 +2,34 @@ import React, {Component, Fragment} from 'react';
 import {Link} from 'react-router-dom';
 
 class ProductItem extends Component {
+        
+    constructor(props) {
+        super(props);
 
+        this.onDelete = this.onDelete.bind(this);
+
+        this.state = {
+            
+        }
+
+    }
+    
+
+    
+    onDelete(e) {
+      
+        let index = e.target.value;
+        
+        let productsArray = JSON.parse(localStorage.getItem('products'));
+        
+        productsArray.splice(index,1);
+
+        localStorage.setItem('products', JSON.stringify(productsArray));
+
+        window.location.reload();
+
+    }
+     
 
     render () {
         
@@ -10,8 +37,8 @@ class ProductItem extends Component {
         
         let productListElements = products.map((product, index) => 
         <Fragment>
-            <tr>
-                <td key={index}>{index+1}</td>
+            <tr key={index} id={index}>
+                <td>{index+1}</td>
                 <td>{product.product_name}</td>
                 <td>{product.product_EAN}</td>
                 <td>{product.product_type}</td>
@@ -23,7 +50,7 @@ class ProductItem extends Component {
                            /></td>
                 <td><Link to={`/products/${index}`}><button className="btn btn-outline-info">View</button></Link></td>
                 <td><button className="btn btn-outline-warning">Edit</button></td>
-                <td><button className="btn btn-outline-danger">Delete</button></td>
+                <td><button className="btn btn-outline-danger"  onClick={this.onDelete} value={index}>Delete</button></td>
           </tr>
         </Fragment>
         );

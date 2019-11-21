@@ -4,6 +4,7 @@
 }
 
 .App-main {
+  padding-top:60px;
   background-color: #22262c;
   min-height: 100vh;
   display: flex;
@@ -12,6 +13,8 @@
   font-size: calc(6px + 2vmin);
   color: white;
 }
+
+
 
 th, td {
   padding: 15px;

@@ -122,6 +122,7 @@ class NewProduct extends Component {
                                     className="form-control"
                                     value={this.state.product_name}
                                     onChange={this.onChangeProductName}
+                                    required
                                     />
                         </div>
                     </div>
@@ -132,6 +133,7 @@ class NewProduct extends Component {
                                 className="form-control"
                                 value={this.state.product_EAN}
                                 onChange={this.onChangeProductEAN}
+                                required
                                 />
                         </div>
                     </div>
@@ -142,6 +144,7 @@ class NewProduct extends Component {
                                     className="form-control"
                                     value={this.state.product_type}
                                     onChange={this.onChangeProductType}
+                                    required
                                     />
                         </div>
                     </div>
@@ -152,6 +155,7 @@ class NewProduct extends Component {
                                     className="form-control"
                                     value={this.state.product_weight}
                                     onChange={this.onChangeProductWeight}
+                                    required
                                     />
                         </div>
                     </div>
@@ -162,6 +166,7 @@ class NewProduct extends Component {
                                     className="form-control"
                                     value={this.state.product_color}
                                     onChange={this.onChangeProductColor}
+                                    required
                                     />
                         </div>
                     </div>

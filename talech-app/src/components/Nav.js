@@ -5,7 +5,7 @@ import logo from './../logo.png';
 class Nav extends Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
                 <a className="navbar-brand" href="/products">
                     <img src={logo} width="30" height="30" alt="CactusLogo"/>
                 </a>
