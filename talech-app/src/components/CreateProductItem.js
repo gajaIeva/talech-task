@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
+import {getFromLocalStorage, saveToLocalStorage} from './localStorageUtilities';
 
 class NewProduct extends Component {
-
-    //productData = (typeof localStorage["products"] != "undefined") ? JSON.parse(localStorage["products"]) : [];
     
     constructor(props) {
         super(props);
@@ -14,8 +13,6 @@ class NewProduct extends Component {
         this.onChangeProductColor = this.onChangeProductColor.bind(this);
         this.onChangeProductIsActive = this.onChangeProductIsActive.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-
-        //localStorage.setItem('products', '[]');
 
         this.state = {
             product_name: '',
@@ -68,9 +65,10 @@ class NewProduct extends Component {
 
         //submit logic
         
-        let productsArray = JSON.parse(localStorage.getItem('products'));
+
+        let productsArray = getFromLocalStorage();
         productsArray.push(this.state);
-        localStorage.setItem('products', JSON.stringify(productsArray));
+        saveToLocalStorage(productsArray);
 
         this.setState({
             product_name: '',
@@ -81,34 +79,6 @@ class NewProduct extends Component {
             product_isActive: false
         });
     }
-
-    //react life cycle - ar tikrai reikia sios dalies?
-    componentDidMount() {
-        this.productData = JSON.parse(localStorage.getItem('products'));
-
-        if (localStorage.getItem('products')) {
-            this.setState({
-                product_name: this.productData.product_name,
-                product_EAN: this.productData.product_EAN,
-                product_type: this.productData.product_type,
-                product_weight: this.productData.product_weight,
-                product_color: this.productData.product_color,
-                product_isActive: this.productData.product_isActive,
-
-            })
-        } else {
-            this.setState({
-                product_name: '',
-                product_EAN: '',
-                product_type: '',
-                product_weight: '',
-                product_color: '',
-                product_isActive: false
-            });
-        }
-    }
-
-
 
     render() {
         return (
