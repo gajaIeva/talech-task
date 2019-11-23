@@ -1,60 +1,70 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {getFromLocalStorage, saveToLocalStorage} from './localStorageUtilities';
 
 class ProductItem extends Component {
-        
+   
     constructor(props) {
         super(props);
-
-        this.onDelete = this.onDelete.bind(this);
-
+        
+        console.log(props);
+        
+        this.deleteItem = this.deleteItem.bind(this);
+        //this.onChangeProductIsActive = this.onChangeProductIsActive.bind(this);
     }
     
-    onDelete(e) {
-      
-        let index = e.target.value;
-        
-        let productsArray = JSON.parse(localStorage.getItem('products'));
-        
-        productsArray.splice(index,1);
+    // onChangeProductIsActive() {
 
-        localStorage.setItem('products', JSON.stringify(productsArray));
+    //    // product_isActive: !this.state.product_isActive
+    //     let productsArray = JSON.parse(localStorage.getItem('products'));
+    //     productsArray.push(this.state);
+    //     localStorage.setItem('products', JSON.stringify(productsArray));
+    // }
 
-        window.location.reload();
-
+    deleteItem() {
+        this.props.onDelete(this.props.index);
     }
+ 
 
     render () {
+        console.log(this.props);
         
-        let products = JSON.parse(localStorage.getItem('products'));
-        
-        let productListElements = products.map((product, index) => 
-        <Fragment>
-            <tr key={index} id={index}>
-                <td>{index+1}</td>
-                <td>{product.product_name}</td>
-                <td>{product.product_EAN}</td>
-                <td>{product.product_type}</td>
-                <td>{product.product_weight}</td>
-                <td>{product.product_color}</td>
-                <td><input type="checkbox" 
-                           checked={product.product_isActive}
-                           //onChange={this.onChangeProductIsActive}
-                           /></td>
-                <td><Link to={`/products/${index}`}><button className="btn btn-outline-info">View</button></Link></td>
-                <td><Link to={`/products/${index}/edit`}><button className="btn btn-outline-warning">Edit</button></Link></td>
-                <td><button className="btn btn-outline-danger"  onClick={this.onDelete} value={index}>Delete</button></td>
-          </tr>
-        </Fragment>
-        );
-        
-       
         return (
-        
-        productListElements
-        
+            <>
+            <tr>
+                <td>{this.props.index+1}</td>
+                <td>{this.props.product.product_name}</td>
+                <td>{this.props.product.product_EAN}</td>
+                <td>{this.props.product.product_type}</td>
+                <td>{this.props.product.product_weight}</td>
+                <td>{this.props.product.product_color}</td>
+                <td><input type="checkbox" 
+                    checked={this.props.product.product_isActive}
+                    //onChange={this.onChangeProductIsActive}
+                    /></td>
+                <td>
+                    <Link to={`/products/${this.props.index}`}>
+                        <button className="btn btn-outline-info">View</button>
+                    </Link>
+                </td>
+                <td>
+                    <Link to={`/products/${this.props.index}/edit`}>
+                        <button className="btn btn-outline-warning">Edit</button>
+                    </Link>
+                </td>
+                <td>
+                    <button 
+                        className="btn btn-outline-danger"  
+                        onClick={this.deleteItem} 
+                    >
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </>
         );
     }
+
 }
 
 export default ProductItem;
