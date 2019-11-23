@@ -6,9 +6,9 @@ class Nav extends Component {
     render() {
         return (
             <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
-                <a className="navbar-brand" href="/products">
+                 <Link to="/products" className="navbar-brand">
                     <img src={logo} width="30" height="30" alt="CactusLogo"/>
-                </a>
+                </Link>
                 <Link to="/products" className="navbar-brand">Cactus Shop</Link>
                 <div className="collapse navbar-collapse">
                     <ul className="navbar-nav mr-auto">

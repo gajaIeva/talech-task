@@ -24,9 +24,6 @@ class PreviewProduct extends Component {
                             <th>Weight</th>
                             <th>Color</th>
                             <th>Active</th>
-                            <th></th>
-                            <th></th>
-                            
                         </tr>
                     </thead>
                     <tbody>
@@ -38,10 +35,8 @@ class PreviewProduct extends Component {
                             <td>{productObject.product_color}</td>
                             <td><input type="checkbox" 
                                 checked={productObject.product_isActive}
-                                //onChange={this.onChangeProductIsActive}
+                                disabled="true"
                                 /></td>
-                            <td><button className="btn btn-outline-warning">Edit</button></td>
-                            <td><button className="btn btn-outline-danger">Delete</button></td>
                         </tr>   
                     </tbody>
                 </table>
