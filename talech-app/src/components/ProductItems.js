@@ -20,8 +20,7 @@ class ProductItems extends Component {
  
 
     render () {
-        console.log(this.props);
-        
+       
         return (
             <>
             <tr>

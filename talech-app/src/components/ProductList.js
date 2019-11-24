@@ -10,6 +10,7 @@ class ProductList extends Component {
         this.onChange = this.onChange.bind(this);
         this.onDelete = this.onDelete.bind(this);
         this.renderProductListElements = this.renderProductListElements.bind(this);
+        console.log("Sveiki :)");
 
         this.state = {
             productsArray: getFromLocalStorage(),

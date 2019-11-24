@@ -38,7 +38,7 @@ class PreviewProduct extends Component {
                                 <input 
                                     type="checkbox" 
                                     checked={productObject.product_isActive}
-                                    readOnly="true"
+                                    readOnly
                                 />
                             </td>
                         </tr>   

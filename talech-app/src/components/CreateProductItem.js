@@ -89,6 +89,7 @@ class NewProduct extends Component {
                                     className="form-control"
                                     value={this.state.product_name}
                                     onChange={this.onChangeProductName}
+                                    autoFocus
                                     required
                                     />
                         </div>
