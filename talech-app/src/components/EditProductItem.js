@@ -26,7 +26,8 @@ class EditProduct extends Component {
             product_type: productObject.product_type,
             product_weight: productObject.product_weight,
             product_color: productObject.product_color,
-            product_isActive: productObject.product_isActive
+            product_isActive: productObject.product_isActive,
+            message: false
         };
     }
 
@@ -71,7 +72,6 @@ class EditProduct extends Component {
 
         let index = this.props.match.params.id;
         let productsArray = getFromLocalStorage();
-        let productObject = productsArray[index];
 
         let updatedProductsArray = [
             ...productsArray.slice(0, index),
@@ -94,94 +94,118 @@ class EditProduct extends Component {
             product_type: this.state.product_type,
             product_weight: this.state.product_weight,
             product_color: this.state.product_color,
-            product_isActive: this.state.product_isActive
+            product_isActive: this.state.product_isActive,
+            message: 'Product updated successfully!'
         });
+
+
     }
 
     render() {
-        
-        let index = this.props.match.params.id;
-
         return (
             <div className="m-1">
-            <h3 className="m-2"> Update Product</h3>
-            <form className='m-3' onSubmit={this.onSubmit} >
-                <div className="form-group row">
-                    <label className="col-sm-3 col-form-label"> Name:</label>
-                    <div className='col-sm'>
-                        <input  type="text"
+                <h3 className="m-2"> Update Product</h3>
+                <h4 className="text-success">{this.state.message}</h4>
+
+                <form className='m-3' onSubmit={this.onSubmit} >
+                    <div className="form-group row">
+                        <label className="col-sm-3 col-form-label"> 
+                        Name:
+                        </label>
+                        <div className='col-sm'>
+                            <input  
+                                type="text"
                                 className="form-control"
                                 value={this.state.product_name}
                                 onChange={this.onChangeProductName}
                                 required
-                                />
-                    </div>
-                </div>
-                <div className="form-group row">
-                    <label className="col-sm-3 col-form-label"> EAN:</label>
-                    <div className='col-sm'>
-                        <input  type="text"
-                            className="form-control"
-                            value={this.state.product_EAN}
-                            onChange={this.onChangeProductEAN}
-                            required
                             />
+                        </div>
                     </div>
-                </div>
-                <div className="form-group row">
-                    <label className="col-sm-3 col-form-label"> Type:</label>
-                    <div className='col-sm'>
-                        <input  type="text"
+                    <div className="form-group row">
+                        <label className="col-sm-3 col-form-label"> 
+                        EAN:
+                        </label>
+                        <div className='col-sm'>
+                            <input  
+                                type="text"
+                                className="form-control"
+                                value={this.state.product_EAN}
+                                onChange={this.onChangeProductEAN}
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div className="form-group row">
+                        <label className="col-sm-3 col-form-label"> 
+                        Type:
+                        </label>
+                        <div className='col-sm'>
+                            <input  
+                                type="text"
                                 className="form-control"
                                 value={this.state.product_type}
                                 onChange={this.onChangeProductType}
                                 required
-                                />
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className="form-group row">
-                    <label className="col-sm-3 col-form-label"> Weight:</label>
-                    <div className='col-sm'>
-                        <input  type="text"
+                    <div className="form-group row">
+                        <label className="col-sm-3 col-form-label"> 
+                        Weight:
+                        </label>
+                        <div className='col-sm'>
+                            <input  
+                                type="text"
                                 className="form-control"
                                 value={this.state.product_weight}
                                 onChange={this.onChangeProductWeight}
                                 required
-                                />
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className="form-group row">
-                    <label className="col-sm-3 col-form-label"> Color:</label>
-                    <div className='col-sm'>
-                        <input  type="text"
+                    <div className="form-group row">
+                        <label className="col-sm-3 col-form-label"> 
+                        Color:
+                        </label>
+                        <div className='col-sm'>
+                            <input  
+                                type="text"
                                 className="form-control"
                                 value={this.state.product_color}
                                 onChange={this.onChangeProductColor}
                                 required
-                                />
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className="form-group row">
-                    <label className="col-sm-2 form-check-label">Active: </label>
-                    <div className="col-sm">
-                        <div className="form-check">
-                            <input  className="form-control "
+                    <div className="form-group row">
+                        <label className="col-sm-2 form-check-label">
+                        Active: 
+                        </label>
+                        <div className="col-sm">
+                            <div className="form-check">
+                                <input  
+                                    className="form-control "
                                     type="checkbox"
                                     checked={this.state.product_isActive}
                                     onChange={this.onChangeProductIsActive}
-                                    />
+                                />
+                                </div>
                             </div>
                         </div>
+                    
+                    <div className="form-group">
+                        <input 
+                            type="submit" 
+                            value="Update" 
+                            className="btn btn-outline-success w-100"
+                        />
                     </div>
-                
-                <div className="form-group">
-                    <input type="submit" value="Update" className="btn btn-outline-success w-100"/>
-                </div>
-            </form>
-
-        </div>
+                </form>
+            </div>
 
         );
+        
     }
 }
 
