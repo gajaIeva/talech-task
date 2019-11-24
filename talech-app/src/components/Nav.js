@@ -9,7 +9,9 @@ class Nav extends Component {
                 <Link to="/products" className="navbar-brand">
                     <img src={logo} width="30" height="30" alt="CactusLogo"/>
                 </Link>
-                <Link to="/products" className="navbar-brand">Cactus</Link>
+                <Link to="/products" className="navbar-brand">
+                    Cactus
+                </Link>
                 <div className="collapse navbar-collapse">
                     <ul className="navbar-nav mr-auto">
                         <li className="navbar-item">
@@ -21,7 +23,7 @@ class Nav extends Component {
                     </ul>
                 </div>
           </nav>
-        )
+        );
     }
 }
 

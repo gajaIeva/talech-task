@@ -83,79 +83,100 @@ class NewProduct extends Component {
                 <h3 className="m-2"> Create New Product</h3>
                 <form className='m-3' onSubmit={this.onSubmit} >
                     <div className="form-group row">
-                        <label className="col-sm-3 col-form-label"> Name:</label>
+                        <label className="col-sm-3 col-form-label"> 
+                        Name:
+                        </label>
                         <div className='col-sm'>
-                            <input  type="text"
-                                    className="form-control"
-                                    value={this.state.product_name}
-                                    onChange={this.onChangeProductName}
-                                    autoFocus
-                                    required
-                                    />
+                            <input  
+                                type="text"
+                                className="form-control"
+                                value={this.state.product_name}
+                                onChange={this.onChangeProductName}
+                                required
+                                autoFocus
+                            />
                         </div>
                     </div>
                     <div className="form-group row">
-                        <label className="col-sm-3 col-form-label"> EAN:</label>
+                        <label className="col-sm-3 col-form-label"> 
+                        EAN:
+                        </label>
                         <div className='col-sm'>
-                            <input  type="text"
+                            <input  
+                                type="text"
                                 className="form-control"
                                 value={this.state.product_EAN}
                                 onChange={this.onChangeProductEAN}
                                 required
-                                />
+                            />
                         </div>
                     </div>
                     <div className="form-group row">
-                        <label className="col-sm-3 col-form-label"> Type:</label>
+                        <label className="col-sm-3 col-form-label"> 
+                        Type:
+                        </label>
                         <div className='col-sm'>
-                            <input  type="text"
-                                    className="form-control"
-                                    value={this.state.product_type}
-                                    onChange={this.onChangeProductType}
-                                    required
-                                    />
+                            <input  
+                                type="text"
+                                className="form-control"
+                                value={this.state.product_type}
+                                onChange={this.onChangeProductType}
+                                required
+                            />
                         </div>
                     </div>
                     <div className="form-group row">
-                        <label className="col-sm-3 col-form-label"> Weight:</label>
+                        <label className="col-sm-3 col-form-label"> 
+                        Weight:
+                        </label>
                         <div className='col-sm'>
-                            <input  type="text"
-                                    className="form-control"
-                                    value={this.state.product_weight}
-                                    onChange={this.onChangeProductWeight}
-                                    required
-                                    />
+                            <input  
+                                type="text"
+                                className="form-control"
+                                value={this.state.product_weight}
+                                onChange={this.onChangeProductWeight}
+                                required
+                            />
                         </div>
                     </div>
                     <div className="form-group row">
-                        <label className="col-sm-3 col-form-label"> Color:</label>
+                        <label className="col-sm-3 col-form-label"> 
+                        Color:
+                        </label>
                         <div className='col-sm'>
-                            <input  type="text"
-                                    className="form-control"
-                                    value={this.state.product_color}
-                                    onChange={this.onChangeProductColor}
-                                    required
-                                    />
+                            <input  
+                                type="text"
+                                className="form-control"
+                                value={this.state.product_color}
+                                onChange={this.onChangeProductColor}
+                                required
+                            />
                         </div>
                     </div>
                     <div className="form-group row">
-                        <label className="col-sm-2 form-check-label">Active: </label>
+                        <label className="col-sm-2 form-check-label">
+                        Active: 
+                        </label>
                         <div className="col-sm">
                             <div className="form-check">
-                                <input  className="form-control "
-                                        type="checkbox"
-                                        checked={this.state.product_isActive}
-                                        onChange={this.onChangeProductIsActive}
-                                        />
+                                <input  
+                                    className="form-control "
+                                    type="checkbox"
+                                    checked={this.state.product_isActive}
+                                    onChange={this.onChangeProductIsActive}
+                                />
                                 </div>
                             </div>
                         </div>
                     
                     <div className="form-group">
-                        <input type="submit" value="Create" className="btn btn-outline-success w-100"/>
+                        <input 
+                            type="submit"  
+                            value="Create" 
+                            className="btn btn-outline-success w-100"
+                        />
                     </div>
                 </form>
-
             </div>
         );
     }

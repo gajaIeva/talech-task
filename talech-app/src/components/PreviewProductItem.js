@@ -5,7 +5,6 @@ import {getFromLocalStorage} from './localStorageUtilities';
 class PreviewProduct extends Component {
 
     render() {
-
         const Id = this.props.match.params.id;
 
         let productsArray = getFromLocalStorage();
@@ -13,13 +12,11 @@ class PreviewProduct extends Component {
         let productObject = productsArray[Id];
 
         return (
-
-             <div>
-                 <h2>{productObject.product_name}</h2>
-                 <table>
+                <div>
+                    <h2>{productObject.product_name}</h2>
+                    <table className="previewProductTable">
                     <thead>
                         <tr>
-                            <th>#</th>
                             <th>EAN</th>
                             <th>Type</th>
                             <th>Weight</th>
@@ -29,7 +26,6 @@ class PreviewProduct extends Component {
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
                             <td>{productObject.product_EAN}</td>
                             <td>{productObject.product_type}</td>
                             <td>{productObject.product_weight}</td>
@@ -45,7 +41,6 @@ class PreviewProduct extends Component {
                     </tbody>
                 </table>
             </div>
-
         );
     }
 }

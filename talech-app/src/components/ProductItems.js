@@ -18,42 +18,48 @@ class ProductItems extends Component {
         this.props.onDelete(this.props.index);
     }
  
-
     render () {
-       
         return (
             <>
-            <tr>
-                <td>{this.props.index+1}</td>
-                <td>{this.props.product.product_name}</td>
-                <td>{this.props.product.product_EAN}</td>
-                <td>{this.props.product.product_type}</td>
-                <td>{this.props.product.product_weight}</td>
-                <td>{this.props.product.product_color}</td>
-                <td><input type="checkbox" 
-                    checked={this.props.product.product_isActive}
-                    onChange={this.changeItem}
-                    /></td>
-                <td>
-                    <Link to={`/products/${this.props.index}`}>
-                        <button className="btn btn-outline-info">View</button>
-                    </Link>
-                </td>
-                <td>
-                    <Link to={`/products/${this.props.index}/edit`}>
-                        <button className="btn btn-outline-warning">Edit</button>
-                    </Link>
-                </td>
-                <td>
-                    <button 
-                        className="btn btn-outline-danger"  
-                        onClick={this.deleteItem} 
-                    >
-                        Delete
-                    </button>
-                </td>
-            </tr>
-        </>
+                <tr>
+                    <td>{this.props.index+1}</td>
+                    <td>{this.props.product.product_name}</td>
+                    <td>{this.props.product.product_EAN}</td>
+                    <td>{this.props.product.product_type}</td>
+                    <td>{this.props.product.product_weight}</td>
+                    <td>{this.props.product.product_color}</td>
+                    <td>
+                        <input 
+                        type="checkbox" 
+                        checked={this.props.product.product_isActive}
+                        onChange={this.changeItem}
+                        />
+                    </td>
+                    <td className='listButton'>
+                        <Link to={`/products/${this.props.index}`}>
+                            <button 
+                                className="btn btn-outline-info"
+                            > View
+                            </button>
+                        </Link>
+                    </td>
+                    <td className='listButton'>
+                        <Link to={`/products/${this.props.index}/edit`}>
+                            <button 
+                                className="btn btn-outline-warning"
+                            > Edit
+                            </button>
+                        </Link>
+                    </td>
+                    <td className='listButton'>
+                        <button 
+                            className="btn btn-outline-danger"  
+                            onClick={this.deleteItem} 
+                        > Delete 
+                        </button>
+                    </td>
+                </tr>
+            </>
         );
     }
 

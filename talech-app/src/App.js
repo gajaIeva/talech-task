@@ -9,26 +9,26 @@ import EditProduct from './components/EditProductItem';
 import PreviewProduct from './components/PreviewProductItem';
 
 class App extends React.Component {
-  render () {
-  return (
-    <Router>
-    <div className="App container-fluid">
-      <header className="App-header">
-       <Nav/>
-      </header>
-      <main className="App-main">
-        <Switch>
-          <Route path="/products/create" component={NewProduct}/>
-          <Route path="/products/:id/edit" component={EditProduct}/>
-          <Route path="/products/:id" exact component={PreviewProduct}/>
-          <Route path="/products" exact component={ProductList} />
-          <Redirect exact from="/" to="/products" />
-        </Switch>
-      </main>
-    </div>
-  </Router>
-  );
-}
+    render () {
+      return (
+        <Router>
+          <div className="App container-fluid">
+            <header className="App-header">
+              <Nav/>
+            </header>
+            <main className="App-main">
+              <Switch>
+                <Route path="/products/create" component={NewProduct}/>
+                <Route path="/products/:id/edit" component={EditProduct}/>
+                <Route path="/products/:id" exact component={PreviewProduct}/>
+                <Route path="/products" exact component={ProductList}/>
+                <Redirect exact from="/" to="/products"/>
+              </Switch>
+            </main>
+          </div>
+        </Router>
+      );
+  }
 }
 
 export default App;

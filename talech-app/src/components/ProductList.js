@@ -10,10 +10,9 @@ class ProductList extends Component {
         this.onChange = this.onChange.bind(this);
         this.onDelete = this.onDelete.bind(this);
         this.renderProductListElements = this.renderProductListElements.bind(this);
-        console.log("Sveiki :)");
 
         this.state = {
-            productsArray: getFromLocalStorage(),
+            productsArray: getFromLocalStorage()
         }
     }
 
@@ -43,11 +42,9 @@ class ProductList extends Component {
         });        
     }
     
-
     onDelete(index) {
         let updatedProductsArray = [
             ...this.state.productsArray.slice(0, index),
-            // {name: "m", ka: 2 ir tt - editinimui}
             ...this.state.productsArray.slice(index + 1)
         ];
 
@@ -61,14 +58,14 @@ class ProductList extends Component {
     renderProductListElements() {
     
         let productsArrayElements = this.state.productsArray.map((product, index) => 
-        {return <ProductItems 
-                    key = {index}
-                    index = {index}
-                    product = {product}
-                    onChange = {this.onChange}
-                    onDelete = {this.onDelete}
-                />  
-        }
+            {return <ProductItems 
+                        key = {index}
+                        index = {index}
+                        product = {product}
+                        onChange = {this.onChange}
+                        onDelete = {this.onDelete}
+                    />  
+            }
         );
 
         return this.state.productsArray.length === 0 ?
@@ -91,7 +88,8 @@ class ProductList extends Component {
                 <tbody>
                     {productsArrayElements}
                 </tbody>
-            </table>;
+            </table>
+            ;
     }
 
     render() {
