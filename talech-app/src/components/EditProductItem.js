@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import {getFromLocalStorage, saveToLocalStorage} from './localStorageUtilities';
 
 class EditProduct extends Component {
+    
     constructor(props) {
         super(props);
 
@@ -12,12 +14,11 @@ class EditProduct extends Component {
         this.onChangeProductIsActive = this.onChangeProductIsActive.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-        const Id = this.props.match.params.id;
+        let index = this.props.match.params.id;
         
-        let products = JSON.parse(localStorage.getItem('products'));
+        let productsArray = getFromLocalStorage();
 
-        let productObject = products[Id];
-
+        let productObject = productsArray[index];
 
         this.state = {
             product_name: productObject.product_name,
@@ -25,7 +26,7 @@ class EditProduct extends Component {
             product_type: productObject.product_type,
             product_weight: productObject.product_weight,
             product_color: productObject.product_color,
-            product_isActive: false
+            product_isActive: productObject.product_isActive
         };
     }
 
@@ -68,57 +69,39 @@ class EditProduct extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        //submit logic
-        const Id = this.props.match.params.id;
-        
-        console.log(this.state);
-        console.log(Id);
-        
-        
-        
-        // let productsArray = JSON.parse(localStorage.getItem('products'));
-        // productsArray.push(this.state);
-        // localStorage.setItem('products', JSON.stringify(productsArray));
+        let index = this.props.match.params.id;
+        let productsArray = getFromLocalStorage();
+        let productObject = productsArray[index];
 
-        // this.setState({
-        //     product_name: '',
-        //     product_EAN: '',
-        //     product_type: '',
-        //     product_weight: '',
-        //     product_color: '',
-        //     product_isActive: false
-        // });
+        let updatedProductsArray = [
+            ...productsArray.slice(0, index),
+            {
+                product_name: this.state.product_name,
+                product_EAN: this.state.product_EAN,
+                product_type: this.state.product_type,
+                product_weight: this.state.product_weight,
+                product_color: this.state.product_color,
+                product_isActive: this.state.product_isActive
+            },
+            ...productsArray.slice(index + 1)
+        ];
+        
+        saveToLocalStorage(updatedProductsArray);
+        
+        this.setState({
+            product_name: this.state.product_name,
+            product_EAN: this.state.product_EAN,
+            product_type: this.state.product_type,
+            product_weight: this.state.product_weight,
+            product_color: this.state.product_color,
+            product_isActive: this.state.product_isActive
+        });
     }
-
-    //react life cycle - ar tikrai reikia sios dalies?
-    componentDidMount() {
-        this.productData = JSON.parse(localStorage.getItem('products'));
-
-        if (localStorage.getItem('products')) {
-            this.setState({
-                product_name: this.productData.product_name,
-                product_EAN: this.productData.product_EAN,
-                product_type: this.productData.product_type,
-                product_weight: this.productData.product_weight,
-                product_color: this.productData.product_color,
-                product_isActive: this.productData.product_isActive,
-
-            })
-        } else {
-            this.setState({
-                product_name: '',
-                product_EAN: '',
-                product_type: '',
-                product_weight: '',
-                product_color: '',
-                product_isActive: false
-            });
-        }
-    }
-
-
 
     render() {
+        
+        let index = this.props.match.params.id;
+
         return (
             <div className="m-1">
             <h3 className="m-2"> Update Product</h3>
