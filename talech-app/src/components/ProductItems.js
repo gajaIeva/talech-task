@@ -1,25 +1,18 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {getFromLocalStorage, saveToLocalStorage} from './localStorageUtilities';
 
-class ProductItem extends Component {
+class ProductItems extends Component {
    
     constructor(props) {
         super(props);
         
-        console.log(props);
-        
+        this.changeItem = this.changeItem.bind(this);
         this.deleteItem = this.deleteItem.bind(this);
-        //this.onChangeProductIsActive = this.onChangeProductIsActive.bind(this);
     }
     
-    // onChangeProductIsActive() {
-
-    //    // product_isActive: !this.state.product_isActive
-    //     let productsArray = JSON.parse(localStorage.getItem('products'));
-    //     productsArray.push(this.state);
-    //     localStorage.setItem('products', JSON.stringify(productsArray));
-    // }
+     changeItem() {
+        this.props.onChange(this.props.index);
+    }
 
     deleteItem() {
         this.props.onDelete(this.props.index);
@@ -40,7 +33,7 @@ class ProductItem extends Component {
                 <td>{this.props.product.product_color}</td>
                 <td><input type="checkbox" 
                     checked={this.props.product.product_isActive}
-                    //onChange={this.onChangeProductIsActive}
+                    onChange={this.changeItem}
                     /></td>
                 <td>
                     <Link to={`/products/${this.props.index}`}>
@@ -67,4 +60,4 @@ class ProductItem extends Component {
 
 }
 
-export default ProductItem;
+export default ProductItems;

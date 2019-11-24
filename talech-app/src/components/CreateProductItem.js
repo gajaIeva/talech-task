@@ -63,9 +63,6 @@ class NewProduct extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        //submit logic
-        
-
         let productsArray = getFromLocalStorage();
         productsArray.push(this.state);
         saveToLocalStorage(productsArray);

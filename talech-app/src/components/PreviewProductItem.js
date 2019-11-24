@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './../App.css';
+import {getFromLocalStorage} from './localStorageUtilities';
 
 class PreviewProduct extends Component {
 
@@ -7,9 +8,9 @@ class PreviewProduct extends Component {
 
         const Id = this.props.match.params.id;
 
-        let products = JSON.parse(localStorage.getItem('products'));
+        let productsArray = getFromLocalStorage();
 
-        let productObject = products[Id];
+        let productObject = productsArray[Id];
 
         return (
 
@@ -33,10 +34,13 @@ class PreviewProduct extends Component {
                             <td>{productObject.product_type}</td>
                             <td>{productObject.product_weight}</td>
                             <td>{productObject.product_color}</td>
-                            <td><input type="checkbox" 
-                                checked={productObject.product_isActive}
-                                disabled="true"
-                                /></td>
+                            <td>
+                                <input 
+                                    type="checkbox" 
+                                    checked={productObject.product_isActive}
+                                    readOnly="true"
+                                />
+                            </td>
                         </tr>   
                     </tbody>
                 </table>

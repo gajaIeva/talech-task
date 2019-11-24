@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ProductItem from './ProductItem';
+import ProductItems from './ProductItems';
 import {getFromLocalStorage, saveToLocalStorage} from './localStorageUtilities';
 
 class ProductList extends Component {
@@ -7,14 +7,41 @@ class ProductList extends Component {
     constructor (props) {
         super(props);
 
+        this.onChange = this.onChange.bind(this);
         this.onDelete = this.onDelete.bind(this);
         this.renderProductListElements = this.renderProductListElements.bind(this);
 
-         // geriau kelti i didMount - (setState) - cia nereikia palikti
         this.state = {
             productsArray: getFromLocalStorage(),
         }
     }
+
+    onChange(index){
+        
+        let productObject = this.state.productsArray[index];
+        
+        productObject.product_isActive = !productObject.product_isActive;
+
+        let updatedProductsArray = [
+            ...this.state.productsArray.slice(0, index),
+            {
+                product_name: productObject.product_name,
+                product_EAN: productObject.product_EAN,
+                product_type: productObject.product_type,
+                product_weight: productObject.product_weight,
+                product_color: productObject.product_color,
+                product_isActive: productObject.product_isActive,
+            },
+            ...this.state.productsArray.slice(index + 1)
+        ];
+
+        saveToLocalStorage(updatedProductsArray);
+
+        this.setState({
+            productsArray: updatedProductsArray
+        });        
+    }
+    
 
     onDelete(index) {
         let updatedProductsArray = [
@@ -33,15 +60,13 @@ class ProductList extends Component {
     renderProductListElements() {
     
         let productsArrayElements = this.state.productsArray.map((product, index) => 
-        {
-            console.log(product);  
-
-            return <ProductItem 
-                key = {index}
-                index = {index}
-                product = {product}
-                onDelete = {this.onDelete}
-            />  
+        {return <ProductItems 
+                    key = {index}
+                    index = {index}
+                    product = {product}
+                    onChange = {this.onChange}
+                    onDelete = {this.onDelete}
+                />  
         }
         );
 
