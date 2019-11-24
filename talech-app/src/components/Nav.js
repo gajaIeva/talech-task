@@ -5,11 +5,11 @@ import logo from './../logo.png';
 class Nav extends Component {
     render() {
         return (
-            <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
-                 <Link to="/products" className="navbar-brand">
+            <nav className="navbar fixed-top navbar-expand navbar-light bg-light ">
+                <Link to="/products" className="navbar-brand">
                     <img src={logo} width="30" height="30" alt="CactusLogo"/>
                 </Link>
-                <Link to="/products" className="navbar-brand">Cactus Shop</Link>
+                <Link to="/products" className="navbar-brand">Cactus</Link>
                 <div className="collapse navbar-collapse">
                     <ul className="navbar-nav mr-auto">
                         <li className="navbar-item">
